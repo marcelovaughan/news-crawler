@@ -89,6 +89,13 @@ func main() {
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/", crawler)
 	router.HandleFunc("/news", crawlerAction).Methods("POST")
-	log.Fatal(http.ListenAndServe(":8080", router))
+
+	var port = "8080"
+
+	if os.Getenv("PORT") != "" {
+		port = os.Getenv("PORT")
+	}
+
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), router))
 
 }
