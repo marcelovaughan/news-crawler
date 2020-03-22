@@ -22,6 +22,10 @@ type Link struct {
 
 func crawlerAction(w http.ResponseWriter, r *http.Request) {
 
+	//Allow CORS here By * or specific origin
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+
 	var links []Link
 
 	c := colly.NewCollector(
