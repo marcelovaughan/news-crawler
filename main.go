@@ -22,9 +22,9 @@ type Link struct {
 
 func crawlerAction(w http.ResponseWriter, r *http.Request) {
 
-	//Allow CORS here By * or specific origin
-	w.Header().Set("Access-Control-Allow-Origin", "*")
-	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+	// //Allow CORS here By * or specific origin
+	// w.Header().Set("Access-Control-Allow-Origin", "*")
+	// w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 
 	var links []Link
 
@@ -43,7 +43,7 @@ func crawlerAction(w http.ResponseWriter, r *http.Request) {
 
 	if len(keyword) < 1 {
 		fmt.Println("Please specify a keyword and a website")
-		os.Exit(1)
+		//os.Exit(1)
 	}
 
 	c.OnHTML("a[href]", func(e *colly.HTMLElement) {
