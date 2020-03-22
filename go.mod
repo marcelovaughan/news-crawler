@@ -1,6 +1,6 @@
 module news-crawler
 
-go 1.12
+go 1.2.3
 
 require (
         "github.com/gocolly/colly"
